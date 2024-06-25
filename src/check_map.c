@@ -1,33 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/06/24 17:21:28 by jetan            ###   ########.fr       */
+/*   Created: 2024/06/23 16:29:15 by jetan             #+#    #+#             */
+/*   Updated: 2024/06/25 09:35:32 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int main(int ac, char **av)
+void	check_ber(char **av)
 {
-	t_data	game;
+	int	len;
 	
-	if (ac != 2)
+	len = ft_strlen(av[1] - 4);
+	if (ft_strncmp(av[1] + len, ".ber", 4))
 	{
-		ft_printf("Error argument!");
+		perror("Error");
+		exit(1);
+	}
+}
+
+char	read_map(t_data *game, char *av)
+{
+	int		fd;
+	char	*read_map;
+	char	*load_map;
+	
+	load_map = ft_strdup("");
+	fd = open(av, O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Error");
 		exit(EXIT_FAILURE);
 	}
-	else
+	while (read_map)
 	{
-		check_ber(av[1]);
-		check_map(&game, av[1]);
-		mlx = mlx_init();
-		mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-		
-		mlx_loop(mlx);
+		read_map = get_next_line(fd);
+		if (!read)
+			break;
+		load_map = ft_strjoin(load_map, read_map);
+		free(read_map);
 	}
 }

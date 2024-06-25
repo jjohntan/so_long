@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:55:33 by jetan             #+#    #+#             */
-/*   Updated: 2024/05/23 16:55:44 by jetan            ###   ########.fr       */
+/*   Updated: 2024/06/24 17:10:16 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include "get_next_line_bonus.h"
 
 typedef struct s_list
 {
