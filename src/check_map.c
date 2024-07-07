@@ -6,23 +6,11 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:29:15 by jetan             #+#    #+#             */
-/*   Updated: 2024/06/25 11:30:44 by jetan            ###   ########.fr       */
+/*   Updated: 2024/07/07 19:01:33 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
-void	check_ber(char **av)
-{
-	int	len;
-	
-	len = ft_strlen(av[1] - 4);
-	if (ft_strncmp(av[1] + len, ".ber", 4))
-	{
-		perror("Error");
-		exit(1);
-	}
-}
 
 char	read_map(char *av)
 {
@@ -50,4 +38,16 @@ char	read_map(char *av)
 	free(read_map);
 	close(fd);
 	return (map);
+}
+
+int	check_map(t_data *game, char **av)
+{
+	char	**map;
+	
+	map = readmap(av[1]);
+	if (!map)
+		return (0);
+	if (check_rectangle(game) != 0)
+		return (1);
+	return (0);
 }

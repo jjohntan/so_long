@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:25:04 by jetan             #+#    #+#             */
-/*   Updated: 2023/12/19 17:53:49 by jetan            ###   ########.fr       */
+/*   Updated: 2024/06/25 15:25:18 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_bzero(void *s, size_t n)
 		ptr[i++] = 0;
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin2(char *s1, char *s2)
 {
 	char	*ptr;
 	size_t	i;
