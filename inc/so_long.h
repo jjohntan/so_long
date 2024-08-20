@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/20 13:38:34 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/20 16:56:24 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char	**read_map(char *av);
 int	check_rectangular(char **map);
 int	check_wall(t_data *data);
 int	check_char(t_data *data);
-
+int	check_ecp(t_data *data);
+void	check_and_count(t_data *data, int r, int c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:20:03 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/20 14:24:03 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/20 16:53:37 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,11 @@ int	check_char(t_data *data)
 	return (1);
 }
 
-int	check_valid_map(t_data *data)
+/*
+ * check the map must contain 1 exit, at least 1 collectible, and 1 starting position to
+be valid.
+*/
+int	check_ecp(t_data *data)
 {
 	int	r;
 	int	c;
@@ -101,7 +105,7 @@ int	check_valid_map(t_data *data)
 		c = 0;
 		while (data->map[r][c])
 		{
-			
+			check_and_count(data, r, c);
 			c++;
 		}
 		r++;
