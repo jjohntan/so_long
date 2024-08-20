@@ -26,7 +26,7 @@ char	*ft_next(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	line = gnl_calloc((gnl_strlen(buffer) - i + 1), sizeof(char));
 	i++;
 	j = 0;
 	while (buffer[i])
@@ -45,7 +45,7 @@ char	*ft_line(char *buffer)
 		return (NULL);
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	line = ft_calloc((i + 2), sizeof(char));
+	line = gnl_calloc((i + 2), sizeof(char));
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 	{
@@ -62,9 +62,9 @@ char	*ft_read(int fd, char *res)
 	char	*buffer;
 	int		byte;
 
-	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
+	buffer = gnl_calloc((BUFFER_SIZE + 1), sizeof(char));
 	byte = 1;
-	while (!ft_strchr(buffer, '\n') && byte > 0)
+	while (!gnl_strchr(buffer, '\n') && byte > 0)
 	{
 		byte = read(fd, buffer, BUFFER_SIZE);
 		if (byte == -1)
@@ -73,7 +73,7 @@ char	*ft_read(int fd, char *res)
 			return (NULL);
 		}
 		buffer[byte] = '\0';
-		res = ft_strjoin(res, buffer);
+		res = gnl_strjoin(res, buffer);
 	}
 	free(buffer);
 	return (res);

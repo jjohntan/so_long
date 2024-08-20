@@ -79,7 +79,14 @@ char	**ft_split(char const *s, char c)
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	char **result;	
-// 	result = ft_split("IM TIRED    BLEH", ' ');
-// 	printf("%s", result[5]);
+// 	char **result;
+// 	int	i;
+
+// 	while (result[i])
+// 	{	
+// 		result = ft_split("IM TIRED    BLEH", ' ');
+// 		printf("%s", result[i]);
+// 		i++;
+// 	}
+// 	free(result);
 // }

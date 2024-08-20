@@ -12,7 +12,7 @@
 
 #include "get_next_line_bonus.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*gnl_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
@@ -21,11 +21,11 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, count * size);
+	gnl_bzero(ptr, count * size);
 	return (ptr);
 }
 
-void	ft_bzero(void *s, size_t n)
+void	gnl_bzero(void *s, size_t n)
 {
 	size_t			i;
 	unsigned char	*ptr;
@@ -36,7 +36,7 @@ void	ft_bzero(void *s, size_t n)
 		ptr[i++] = 0;
 }
 
-char	*ft_strjoin2(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*ptr;
 	size_t	i;
@@ -49,7 +49,7 @@ char	*ft_strjoin2(char *s1, char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	ptr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	ptr = (char *)malloc(sizeof(char) * (gnl_strlen(s1) + gnl_strlen(s2) + 1));
 	if (!ptr)
 		return (NULL);
 	i = -1;
@@ -63,7 +63,7 @@ char	*ft_strjoin2(char *s1, char *s2)
 	return (ptr);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	gnl_strlen(const char *s)
 {
 	size_t	i;
 
@@ -73,7 +73,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*gnl_strchr(const char *s, int c)
 {
 	int	i;
 

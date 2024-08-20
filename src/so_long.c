@@ -12,35 +12,59 @@
 
 #include "../inc/so_long.h"
 
+
+void	check_map(t_data *data)
+{
+	if (check_rectangular(data->map) == 0  || check_wall(data) == 0 
+			|| check_char(data) == 0)
+	{
+		// free();
+		ft_printf("Error.invalid map\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
 void	check_ber(char *av)
 {
 	int	len;
 	
-	len = ft_strlen(&av[1]) - 4;
-	if (ft_strncmp(&av[len], ".ber", 4))
+	len = ft_strlen(av) - 4;
+	if (ft_strncmp(&av[len], ".ber", 4) != 0)
 	{
-		perror("Error");
-		exit(1);
+		ft_printf("Error. invalid format\n");
+		exit(EXIT_FAILURE);
 	}
+}
+
+void	ft_init_data(t_data *data)
+{
+	data->p_count = 0;
+	data->c_count = 0;
+	data->e_count = 0;
+	data->x = 0;
+	data->y = 0;
+	data->move = 0;
+	data->height = 0;
+	data->width = 0;
 }
 
 int main(int ac, char **av)
 {
-	t_data	game;
+	t_data	data;
 	
 	if (ac != 2)
 	{
-		ft_printf("Error argument!");
+		ft_printf("Error argument!\n");
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
-		ft_bzero(&game, sizeof(t_data));
+		ft_init_data(&data);
 		check_ber(av[1]);
-		check_map(&game, av);
-		// mlx = mlx_init();
-		// mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-		
-		// mlx_loop(mlx);
+		data.map = read_map(av[1]);
+		check_map(&data);
+		// window(&data);
+		// control(&data);
+		// mlx_loop(data.mlx_ptr);
 	}
 }

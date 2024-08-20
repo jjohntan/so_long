@@ -12,22 +12,46 @@
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+# define WALL "./pictures/wall.xpm"
+# define EMPTY "./pictures/empty.xpm"
+# define PLAYER "./pictures/player.xpm"
+# define EXIT "./pictures/exit.xpm"
+# define COLLECT "./pictures/collect.xpm"
+# define WIN "./pictures/winner.xpm"
 
-# include <mlx.h>
+// # include <mlx.h>
 # include "../libft/libft.h"
 # include <stdio.h>
 # include <fcntl.h>
-
+# include "../minilibx-linux/mlx.h"
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*mlx_win;
+	void	*player;
+	void	*wall;
+	void	*exit;
+	void	*collectible;
+	void	*empty;
+	int height;
+	int width;
+	int	move;
+	int c_count;
+	int	e_count;
+	int p_count;
+	int x;
+	int y;
+	void	*mlx_ptr;
+	void	*win_ptr;
 	char	**map;
-	
 }	t_data;
 
 void	check_ber(char *av);
-void	check_map(t_data *game, char **av);
+void	check_map(t_data *data);
+char	**read_map(char *av);
+//check map
+int	check_rectangular(char **map);
+int	check_wall(t_data *data);
+int	check_char(t_data *data);
+
 
 #endif

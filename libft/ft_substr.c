@@ -44,3 +44,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	subs[i] = '\0';
 	return (subs);
 }
+// #include <stdio.h>
+// int main()
+// {
+// 	char *res;
+
+// 	res = ft_substr("Hello", 1, 3);
+// 	printf("%s\n", res);
+// }

@@ -17,6 +17,10 @@
 # include <stdlib.h>
 # include <limits.h>
 
+# ifndef OPEN_MAX
+#  define OPEN_MAX 10240
+# endif
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
@@ -25,10 +29,10 @@ char	*get_next_line(int fd);
 char	*ft_read(int fd, char *res);
 char	*ft_line(char *buffer);
 char	*ft_next(char *buffer);
-char	*ft_strjoin2(char *s1, char *s2);
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-void	*ft_calloc(size_t elementCount, size_t elementSize);
-void	ft_bzero(void *s, size_t n);
+char	*gnl_strjoin(char *s1, char *s2);
+size_t	gnl_strlen(const char *s);
+char	*gnl_strchr(const char *s, int c);
+void	*gnl_calloc(size_t elementCount, size_t elementSize);
+void	gnl_bzero(void *s, size_t n);
 
 #endif

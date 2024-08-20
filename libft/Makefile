@@ -54,7 +54,10 @@ MY_SOURCE = ft_isalpha.c \
 			ft_print_nbr.c \
 			ft_print_ptr.c \
 			ft_print_str.c \
-			ft_print_percent.c
+			ft_print_percent.c \
+			get_next_line_bonus.c \
+			get_next_line_utils_bonus.c 
+
 
 MY_OBJECTS = $(MY_SOURCE:.c=.o)
 
