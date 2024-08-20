@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_utils.c                                  :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:20:03 by jetan             #+#    #+#             */
-/*   Updated: 2024/07/07 16:34:38 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/20 14:24:03 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	check_rectangular(char **map)
 {
 	int	h;
 	int	first_row_len;
-	
-	if (!*map || !map[0])
+
+	if (!*map)
 		return (0);
 	h = 0;
 	first_row_len = ft_strlen(map[0]);
@@ -35,7 +35,7 @@ int	check_rectangular(char **map)
 * the first while loops check for the first and last row
 * the second while loops check for the first and last column
 */
-int	check_wall(t_data *data)//bug
+int	check_wall(t_data *data)
 {
 	int	h;
 	int	w;
@@ -46,7 +46,7 @@ int	check_wall(t_data *data)//bug
 	h = 0;
 	while (data->map[h])
 		h++;
-	ft_printf("height: %d\n", h);//debug
+	// ft_printf("height: %d\n", h);//debug
 	w = 0;
 	while (data->map[0][w] && data->map[h - 1][w])
 	{
@@ -54,10 +54,10 @@ int	check_wall(t_data *data)//bug
 			return (0);
 		w++;
 	}
-	ft_printf("width: %d\n", w);//debug
+	// ft_printf("width: %d\n", w);//debug
 	h = 0;
 	row_len = ft_strlen(data->map[h]);
-	ft_printf("row_len: %d\n", row_len);//debug
+	// ft_printf("row_len: %d\n", row_len);//debug
 	while (data->map[h])
 	{
 		if (data->map[h][0] != '1' || data->map[h][row_len - 1] != '1')
@@ -90,4 +90,23 @@ int	check_char(t_data *data)
 	return (1);
 }
 
-int		
+int	check_valid_map(t_data *data)
+{
+	int	r;
+	int	c;
+	
+	r = 0;
+	while (data->map[r])
+	{
+		c = 0;
+		while (data->map[r][c])
+		{
+			
+			c++;
+		}
+		r++;
+	}
+	if (data->e_count != 1 && data->c_count < 1 && data->p_count != 1)
+		return (0);
+	return (1);
+}

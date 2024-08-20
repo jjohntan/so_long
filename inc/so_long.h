@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/07/07 16:37:52 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/20 13:38:34 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 # include <fcntl.h>
-# include "../minilibx-linux/mlx.h"
+// # include "../minilibx-linux/mlx.h"
+# include <mlx.h>
 
 typedef struct s_data
 {
