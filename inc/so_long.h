@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/20 16:56:24 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/21 13:44:10 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ int	check_wall(t_data *data);
 int	check_char(t_data *data);
 int	check_ecp(t_data *data);
 void	check_and_count(t_data *data, int r, int c);
+int	check_row_and_column(t_data *data, int h, int w);
 
 #endif
