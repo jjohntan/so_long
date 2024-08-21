@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 14:30:44 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/21 14:44:45 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ int main(int ac, char **av)
 	{
 		ft_bzero(&data, sizeof(t_data));
 		check_ber(av[1]);
-		data.map = read_map(av[1]);
+		data.map = parse_map(av[1]);
 		check_map(&data);
-		window(&data);
+		data.mlx_ptr = mlx_init();
+		data.win_ptr = mlx_new_window(data.mlx_ptr, 600, 400, "so_long");
 		// mlx_hook(data.win_ptr, 2, (1L<<0), keypress, &data);
 		// mlx_hook(data.win_ptr, 17, 0, destroy, &data);
 		mlx_loop(data.mlx_ptr);

@@ -1,7 +1,7 @@
 NAME = so_long
 
 SRCS =  src/so_long.c \
-		src/read_map.c \
+		src/parse_map.c \
 		src/check_map.c	\
 		src/check_map2.c
       

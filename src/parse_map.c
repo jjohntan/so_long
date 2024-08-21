@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:29:15 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 13:55:47 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/21 14:40:32 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 /*
 * 
 */
-char	**read_map(char *av)
+char	**parse_map(char *av)
 {
 	int		fd;
 	char	*read_map;
@@ -47,7 +47,7 @@ char	**read_map(char *av)
 //     char **map;
 //     int i;
 
-//     map = read_map("test_map.txt");
+//     map = parse_map("test_map.txt");
 // 	i = 0;
 //     while (map[i] != NULL)
 //     {

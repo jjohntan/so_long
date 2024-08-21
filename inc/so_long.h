@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 13:44:10 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/21 15:17:36 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@
 // # include "../minilibx-linux/mlx.h"
 # include <mlx.h>
 
+# define XPM_WIDTH 32
+# define XPM_HEIGHT 32
+
 typedef struct s_data
 {
-	void	*player;
-	void	*wall;
-	void	*exit;
-	void	*collectible;
 	void	*empty;
+	void	*wall;
+	void	*collectible;
+	void	*exit;
+	void	*player;
 	int height;
 	int width;
 	int	move;
@@ -48,7 +51,7 @@ typedef struct s_data
 
 void	check_ber(char *av);
 void	check_map(t_data *data);
-char	**read_map(char *av);
+char	**parse_map(char *av);
 //check map
 int	check_rectangular(char **map);
 int	check_wall(t_data *data);
