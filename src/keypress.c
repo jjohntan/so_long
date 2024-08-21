@@ -6,15 +6,23 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:36:06 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 15:57:58 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/21 18:21:35 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	move_up()
+void	move_up(t_data *data)
 {
-	
+	if (data->map[y - 1][x] != '1')
+	{
+		
+		if (data->map[y - 1][x] == 'C')
+			data->c_count--;
+		data->y--;
+		data->move++;
+		ft_printf("move: %d\n", data->move);
+	}
 }
 
 /*

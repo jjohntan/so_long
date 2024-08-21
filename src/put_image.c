@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:50:15 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 15:29:45 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/21 17:38:40 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	put_img_to_char(t_data *data)
 	int	img_width;
 	int	img_height;
 	
-	data->empty = mlx_xpm_file_to_image(data->mlx_ptr, , img_width, img_height);
-	data->wall = mlx_xpm_file_to_image(data->mlx_ptr, , img_width, img_height);
-	data->collectible = mlx_xpm_file_to_image(data->mlx_ptr, , img_width, img_height);
-	data->exit = mlx_xpm_file_to_image(data->mlx_ptr, , img_width, img_height);
-	data->player = mlx_xpm_file_to_image(data->mlx_ptr, , img_width, img_height);
+	data->empty = mlx_xpm_file_to_image(data->mlx_ptr, "space.xpm", img_width, img_height);
+	data->wall = mlx_xpm_file_to_image(data->mlx_ptr, "wall.xpm", img_width, img_height);
+	data->collectible = mlx_xpm_file_to_image(data->mlx_ptr, "coin.xpm", img_width, img_height);
+	data->exit = mlx_xpm_file_to_image(data->mlx_ptr, "door.xpm", img_width, img_height);
+	data->player = mlx_xpm_file_to_image(data->mlx_ptr, "player.xpm", img_width, img_height);
 }
 
 void	check_and_put_img(t_data *data, int y, int x)
