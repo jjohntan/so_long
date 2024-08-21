@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/20 14:49:39 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/21 14:30:44 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	check_map(t_data *data)
 			|| check_char(data) == 0 || check_ecp(data) == 0)
 	{
 		// free();
-		ft_printf("Error.invalid map\n");
+		ft_printf("Error. invalid map\n");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -36,18 +36,6 @@ void	check_ber(char *av)
 	}
 }
 
-void	ft_init_data(t_data *data)
-{
-	data->p_count = 0;
-	data->c_count = 0;
-	data->e_count = 0;
-	data->x = 0;
-	data->y = 0;
-	data->move = 0;
-	data->height = 0;
-	data->width = 0;
-}
-
 int main(int ac, char **av)
 {
 	t_data	data;
@@ -59,12 +47,13 @@ int main(int ac, char **av)
 	}
 	else
 	{
-		ft_init_data(&data);
+		ft_bzero(&data, sizeof(t_data));
 		check_ber(av[1]);
 		data.map = read_map(av[1]);
 		check_map(&data);
-		// window(&data);
-		// control(&data);
-		// mlx_loop(data.mlx_ptr);
+		window(&data);
+		// mlx_hook(data.win_ptr, 2, (1L<<0), keypress, &data);
+		// mlx_hook(data.win_ptr, 17, 0, destroy, &data);
+		mlx_loop(data.mlx_ptr);
 	}
 }

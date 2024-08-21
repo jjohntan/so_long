@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:20:03 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 13:53:17 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/21 13:55:20 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	check_wall(t_data *data)
 	return (res);
 }
 /*
+ * check every single character of the map
 */
 int	check_char(t_data *data)
 {

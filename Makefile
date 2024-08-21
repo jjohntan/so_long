@@ -16,7 +16,7 @@ FSANTIZE = -fsanitize=address -g3
 all: $(NAME)
 
 $(NAME): $(OBJS) libft
-	$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -Lmlx -lmlx -framework OpenGL -framework Appkit -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -lmlx -framework OpenGL -framework Appkit -o $(NAME)
 
 %.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
