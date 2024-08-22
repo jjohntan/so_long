@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 18:37:23 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/22 16:38:00 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ int main(int ac, char **av)
 		check_map(&data);
 		data.mlx_ptr = mlx_init();
 		data.win_ptr = mlx_new_window(data.mlx_ptr, 600, 400, "so_long");
-		
+		put_img_to_char(&data);
+		put_img_to_win(&data);
 		mlx_hook(data.win_ptr, 2, (1L<<0), keypress, &data);
-		// mlx_hook(data.win_ptr, 17, 0, exit_game, &data);
+		mlx_hook(data.win_ptr, 17, 0, exit_game, &data);
 		mlx_loop(data.mlx_ptr);
 	}
 }

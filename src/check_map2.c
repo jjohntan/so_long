@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:48:45 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 13:49:35 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/22 14:42:03 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
  * check the character and increase the count
  * set the starting positon
 */
-void	check_and_count(t_data *data, int r, int c)
+static void	check_and_count(t_data *data, int h, int w)
 {
-	if (data->map[r][c] == 'E')
+	if (data->map[h][w] == 'E')
 		data->e_count++;
-	else if (data->map[r][c] == 'C')
+	else if (data->map[h][w] == 'C')
 		data->c_count++;
-	else if (data->map[r][c] == 'P')
+	else if (data->map[h][w] == 'P')
 	{
-		data-> y = r;
-		data-> x = c;
+		data-> y = h;
+		data-> x = w;
 		data->p_count++;
 	}
 }
@@ -35,19 +35,19 @@ be valid.
 */
 int	check_ecp(t_data *data)
 {
-	int	r;
-	int	c;
+	int	h;
+	int	w;
 	
-	r = 0;
-	while (data->map[r])
+	h = 0;
+	while (data->map[h])
 	{
-		c = 0;
-		while (data->map[r][c])
+		w = 0;
+		while (data->map[h][w])
 		{
-			check_and_count(data, r, c);
-			c++;
+			check_and_count(data, h, w);
+			w++;
 		}
-		r++;
+		h++;
 	}
 	if (data->e_count != 1 && data->c_count < 1 && data->p_count != 1)
 		return (0);

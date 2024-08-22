@@ -4,7 +4,9 @@ SRCS =  src/so_long.c \
 		src/parse_map.c \
 		src/check_map.c	\
 		src/check_map2.c \
-		#src/keypress.c
+		src/put_image.c \
+		src/keypress.c \
+		src/keypress2.c
       
 
 
