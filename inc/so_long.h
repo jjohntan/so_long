@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/22 16:37:23 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/22 17:45:54 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define XPM_WIDTH 32
-# define XPM_HEIGHT 32
+# define SIZE 50
 
 typedef struct s_data
 {
@@ -60,9 +59,9 @@ void	move_up(t_data *data);
 void	move_down(t_data *data);
 void	move_left(t_data *data);
 void	move_right(t_data *data);
-
 void	check_collectible(t_data *data, int x, int y);
 void	check_space(t_data *data, int x, int y);
 void	check_exit(t_data *data, int x, int y);
 int exit_game(t_data *data);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/22 16:38:00 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/22 17:49:09 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ void	check_ber(char *av)
 	}
 }
 
+void get_map_size(t_data *data)
+{
+	// data->width = 0;
+	// data->height = 0;
+	while(data->map[data->height])
+		data->height++;
+	while(data->map[0][data->width])
+		data->width++;
+}
+
 int main(int ac, char **av)
 {
 	t_data	data;
@@ -50,11 +60,12 @@ int main(int ac, char **av)
 		check_ber(av[1]);
 		data.map = parse_map(av[1]);
 		check_map(&data);
+		get_map_size(&data);
 		data.mlx_ptr = mlx_init();
-		data.win_ptr = mlx_new_window(data.mlx_ptr, 600, 400, "so_long");
+		data.win_ptr = mlx_new_window(data.mlx_ptr, data.width * SIZE, data.height * SIZE, "so_long");
 		put_img_to_char(&data);
 		put_img_to_win(&data);
-		mlx_hook(data.win_ptr, 2, (1L<<0), keypress, &data);
+		mlx_hook(data.win_ptr, 2, (1L << 0), keypress, &data);
 		mlx_hook(data.win_ptr, 17, 0, exit_game, &data);
 		mlx_loop(data.mlx_ptr);
 	}
