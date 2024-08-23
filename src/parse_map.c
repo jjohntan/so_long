@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:29:15 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/21 14:40:32 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/23 13:36:21 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ char	**parse_map(char *av)
 	char	*load_map;
 	char	*tmp;
 	char	**map;
-	
+
 	read_map = NULL;
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
-		return NULL;
+		return (NULL);
 	load_map = ft_strdup("");
 	while (1)
 	{
 		read_map = get_next_line(fd);
 		if (!read_map)
-			break;
+			break ;
 		tmp = load_map;
 		load_map = ft_strjoin(tmp, read_map);
 		free(read_map);
