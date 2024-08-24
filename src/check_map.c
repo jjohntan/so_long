@@ -6,24 +6,24 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:20:03 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/24 14:10:51 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/24 17:20:42 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 /* check the first row and rest row have the same length */
-int	check_rectangular(char **map)
+int	check_rectangular(t_data *data)
 {
 	int	h;
 	int	first_row_len;
 
-	if (!*map)
+	if (!data->map)
 		return (0);
 	h = 0;
-	first_row_len = ft_strlen(map[0]);
-	while (map[h])
+	first_row_len = ft_strlen(data->map[h]);
+	while (data->map[h])
 	{
-		if ((int)ft_strlen(map[h]) != first_row_len)
+		if ((int)ft_strlen(data->map[h]) != first_row_len)
 			return (0);
 		h++;
 	}

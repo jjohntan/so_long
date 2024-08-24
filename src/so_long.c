@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/23 13:30:58 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/24 17:16:14 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	check_map(t_data *data)
 {
-	if (check_rectangular(data->map) == 0 || check_wall(data) == 0
+	if (check_rectangular(data) == 0 || check_wall(data) == 0
 		|| check_char(data) == 0 || check_ecp(data) == 0)
 	{
 		// free();
 		ft_printf("Error. invalid map\n");
 		exit(EXIT_FAILURE);
 	}
+	// flood_fill();
 }
 
 void	check_ber(char *av)

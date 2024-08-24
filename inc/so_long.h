@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/24 15:14:10 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/24 17:17:16 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	check_ber(char *av);
 void	check_map(t_data *data);
 char	**parse_map(char *av);
 //check map
-int		check_rectangular(char **map);
+int		check_rectangular(t_data *data);
 int		check_wall(t_data *data);
 int		check_char(t_data *data);
 int		check_ecp(t_data *data);
