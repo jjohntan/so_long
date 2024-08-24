@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:50:15 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/23 13:35:26 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/24 14:47:12 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,22 @@ static void	check_and_put_img(t_data *data, int y, int x)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall,
 			x * SIZE, y * SIZE);
 	else if (data->map[y][x] == 'C')
+	{
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->empty,
+			x * SIZE, y * SIZE);
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->collectible,
 			x * SIZE, y * SIZE);
+	}
 	else if (data->map[y][x] == 'E')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->exit,
 			x * SIZE, y * SIZE);
 	else if (data->map[y][x] == 'P')
+	{
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->empty,
+			x * SIZE, y * SIZE);
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player,
 			x * SIZE, y * SIZE);
+	}
 }
 
 void	put_img_to_win(t_data *data)

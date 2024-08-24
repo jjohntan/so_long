@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:36:06 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/23 14:41:23 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/24 15:15:57 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	move_up(t_data *data)
 	int	y;
 	int	x;
 	int	old_x;
-	int old_y;
+	int	old_y;
 
 	old_x = data->x;
 	old_y = data->y;
@@ -64,7 +64,7 @@ void	move_left(t_data *data)
 	int	x;
 	int	old_y;
 	int	old_x;
-	
+
 	old_y = data->y;
 	old_x = data->x;
 	if (data->map[data->y][data->x - 1] != '1')
@@ -87,7 +87,7 @@ void	move_right(t_data *data)
 	int	x;
 	int	old_y;
 	int	old_x;
-	
+
 	old_y = data->y;
 	old_x = data->x;
 	if (data->map[data->y][data->x + 1] != '1')

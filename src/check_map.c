@@ -6,14 +6,12 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:20:03 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/23 13:43:42 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/24 14:10:51 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-/*
-* check the first row and rest row have the same length 
-*/
+/* check the first row and rest row have the same length */
 int	check_rectangular(char **map)
 {
 	int	h;
@@ -73,9 +71,7 @@ int	check_wall(t_data *data)
 	return (res);
 }
 
-/*
- * check every single character of the map
-*/
+/* check every single character of the map */
 int	check_char(t_data *data)
 {
 	int	h;
