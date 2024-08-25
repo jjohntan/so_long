@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:36:06 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/24 15:15:57 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 16:25:58 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	move_up(t_data *data)
 		check_collectible(data, x, y);
 		check_space(data, x, y);
 		check_exit(data, x, y);
-		data->map[old_y][old_x] = '0';
+		if (data->map[old_y][old_x] != 'E')
+			data->map[old_y][old_x] = '0';
 		data->move++;
 		ft_printf("move: %d\n", data->move);
 	}
@@ -52,7 +53,8 @@ void	move_down(t_data *data)
 		check_collectible(data, x, y);
 		check_space(data, x, y);
 		check_exit(data, x, y);
-		data->map[old_y][old_x] = '0';
+		if (data->map[old_y][old_x] != 'E')
+			data->map[old_y][old_x] = '0';
 		data->move++;
 		ft_printf("move: %d\n", data->move);
 	}
@@ -75,7 +77,8 @@ void	move_left(t_data *data)
 		check_collectible(data, x, y);
 		check_space(data, x, y);
 		check_exit(data, x, y);
-		data->map[old_y][old_x] = '0';
+		if (data->map[old_y][old_x] != 'E')
+			data->map[old_y][old_x] = '0';
 		data->move++;
 		ft_printf("move: %d\n", data->move);
 	}
@@ -98,7 +101,8 @@ void	move_right(t_data *data)
 		check_collectible(data, x, y);
 		check_space(data, x, y);
 		check_exit(data, x, y);
-		data->map[old_y][old_x] = '0';
+		if (data->map[old_y][old_x] != 'E')
+			data->map[old_y][old_x] = '0';
 		data->move++;
 		ft_printf("move: %d\n", data->move);
 	}

@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:48:45 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/25 16:08:12 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 16:22:05 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	game_res(t_data *data)
 {
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->exit, 40, 40);
+	exit(EXIT_SUCCESS);
 }
 
 int	frame(t_data *data)
