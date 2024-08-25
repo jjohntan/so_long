@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:48:45 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/24 14:44:39 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 16:08:12 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 */
 static void	check_and_count(t_data *data, int h, int w)
 {
-	if (data->map[h][w] == 'E')
-		data->e_count++;
-	else if (data->map[h][w] == 'C')
+	if (data->map[h][w] == 'C')
 		data->c_count++;
 	else if (data->map[h][w] == 'P')
 	{
@@ -29,25 +27,29 @@ static void	check_and_count(t_data *data, int h, int w)
 	}
 }
 
-/* check the map must contain 1 exit, at least 1 collectible,
+/*	*check the map must contain 1 exit, at least 1 collectible,
 	and 1 starting position to be valid. */
 int	check_ecp(t_data *data)
 {
 	int	h;
 	int	w;
+	int	exit;
 
 	h = 0;
+	exit = 0;
 	while (data->map[h])
 	{
 		w = 0;
 		while (data->map[h][w])
 		{
+			if (data->map[h][w] == 'E')
+				exit++;
 			check_and_count(data, h, w);
 			w++;
 		}
 		h++;
 	}
-	if (data->e_count != 1 && data->c_count < 1 && data->p_count != 1)
+	if (exit != 1 && data->c_count < 1 && data->p_count != 1)
 		return (0);
 	return (1);
 }
