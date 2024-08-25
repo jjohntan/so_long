@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/25 15:44:00 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 21:35:42 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ void	check_map(t_data *data)
 		ft_printf("Error. invalid map\n");
 		exit(EXIT_FAILURE);
 	}
-	// flood_fill();
+	if (flood_fill(data, data->x, data->y) == 0)
+	{
+		ft_printf("Error. invalid path\n");
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	check_ber(char *av)
@@ -71,8 +75,9 @@ int	main(int ac, char **av)
 		ft_bzero(&data, sizeof(t_data));
 		check_ber(av[1]);
 		data.map = parse_map(av[1]);
-		check_map(&data);
+		data.tmp_map = parse_map(av[1]);
 		get_map_size(&data);
+		check_map(&data);
 		data.mlx_ptr = mlx_init();
 		data.win_ptr = mlx_new_window(data.mlx_ptr, data.width * SIZE,
 				data.height * SIZE, "so_long");

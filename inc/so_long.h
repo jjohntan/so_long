@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/25 15:49:55 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 22:01:06 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_data
 	int		width;
 	int		move;
 	int		c_count;
+	int		tmp_c_count;
 	int		e_count;
 	int		p_count;
 	int		x;
@@ -39,6 +40,7 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
+	char	**tmp_map;
 }	t_data;
 
 void	check_ber(char *av);
@@ -52,6 +54,7 @@ int		check_char(t_data *data);
 int		check_ecp(t_data *data);
 int		check_row_and_column(t_data *data, int h, int w);
 int		frame(t_data *data);
+int	flood_fill(t_data *data, int x, int y);
 //put image
 void	put_img_to_win(t_data *data);
 void	put_img_to_char(t_data *data);

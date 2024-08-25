@@ -6,7 +6,8 @@ SRCS =  src/so_long.c \
 		src/check_map2.c \
 		src/put_image.c \
 		src/keypress.c \
-		src/keypress2.c
+		src/keypress2.c \
+		src/flood_fill.c
       
 
 
@@ -14,7 +15,7 @@ OBJS = $(SRCS:.c=.o) $(UTILS:.c=.o)
 
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iinc -Ilibft -Imlx $(FSANTIZE)
+CFLAGS = -Wall -Wextra -Werror -Iinc -Ilibft -Imlx
 FSANTIZE = -fsanitize=address -g3
 all: $(NAME)
 
