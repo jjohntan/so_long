@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/24 17:16:14 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 15:44:00 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_map(t_data *data)
 	if (check_rectangular(data) == 0 || check_wall(data) == 0
 		|| check_char(data) == 0 || check_ecp(data) == 0)
 	{
-		// free();
+		free_map(data->map);
 		ft_printf("Error. invalid map\n");
 		exit(EXIT_FAILURE);
 	}
@@ -42,6 +42,19 @@ void	get_map_size(t_data *data)
 		data->height++;
 	while (data->map[0][data->width])
 		data->width++;
+}
+
+void	free_map(char **map)
+{
+	int	i;
+	
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
 
 int	main(int ac, char **av)

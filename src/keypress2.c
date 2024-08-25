@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:11:41 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/23 14:14:30 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 15:28:36 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	check_exit(t_data *data, int x, int y)
 
 int	exit_game(t_data *data)
 {
-	(void) *data;
+	free_map(data->map);
 	exit(EXIT_SUCCESS);
 }

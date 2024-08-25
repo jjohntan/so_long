@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/24 17:17:16 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 15:49:55 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 typedef struct s_data
 {
-	void	*empty;
+	void	*space;
 	void	*wall;
 	void	*collectible;
 	void	*exit;
@@ -44,6 +44,7 @@ typedef struct s_data
 void	check_ber(char *av);
 void	check_map(t_data *data);
 char	**parse_map(char *av);
+void	free_map(char **map);
 //check map
 int		check_rectangular(t_data *data);
 int		check_wall(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:50:15 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/24 14:47:12 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/25 15:50:20 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	put_img_to_char(t_data *data)
 	int	img_width;
 	int	img_height;
 
-	data->empty = mlx_xpm_file_to_image(data->mlx_ptr, "./sprite/space.xpm",
+	data->space = mlx_xpm_file_to_image(data->mlx_ptr, "./sprite/space.xpm",
 			&img_width, &img_height);
 	data->wall = mlx_xpm_file_to_image(data->mlx_ptr, "./sprite/wall.xpm",
 			&img_width, &img_height);
@@ -32,14 +32,14 @@ void	put_img_to_char(t_data *data)
 static void	check_and_put_img(t_data *data, int y, int x)
 {
 	if (data->map[y][x] == '0')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->empty,
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->space,
 			x * SIZE, y * SIZE);
 	else if (data->map[y][x] == '1')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall,
 			x * SIZE, y * SIZE);
 	else if (data->map[y][x] == 'C')
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->empty,
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->space,
 			x * SIZE, y * SIZE);
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->collectible,
 			x * SIZE, y * SIZE);
@@ -49,7 +49,7 @@ static void	check_and_put_img(t_data *data, int y, int x)
 			x * SIZE, y * SIZE);
 	else if (data->map[y][x] == 'P')
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->empty,
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->space,
 			x * SIZE, y * SIZE);
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player,
 			x * SIZE, y * SIZE);
