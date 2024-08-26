@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:45:23 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/26 19:09:59 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/26 19:46:37 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ int	flood_fill(t_data *data, int x, int y)
 	flood_fill(data, x, y + 1);
 	return (1);
 }
-// void	flood_fill(t_data *data)
-// {
-	
-// }
+
 // int	main()
 // {
 // }
