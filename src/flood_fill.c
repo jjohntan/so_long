@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:45:23 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/26 14:56:47 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/26 19:09:59 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	flood_fill(t_data *data, int x, int y)
 	if (map[y][x] == 'C')
 		c--;
 	if (map[y][x] == 'E')
+		data->exit_found = 1;
+	if (c == 0 && data->exit_found == 1)
 	{
-		if (c == 0)
-			return (1);
-		else
-			return (0);
+		data->valid_map = 1;
+		return (1);
 	}
 	map[y][x] = 'F';
 	flood_fill(data, x - 1, y);
@@ -40,6 +40,10 @@ int	flood_fill(t_data *data, int x, int y)
 	flood_fill(data, x, y + 1);
 	return (1);
 }
+// void	flood_fill(t_data *data)
+// {
+	
+// }
 // int	main()
 // {
 // }

@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/26 14:56:10 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/26 16:45:41 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_data
 	void	*win_ptr;
 	char	**map;
 	char	**tmp_map;
+	int		valid_map;
+	int		exit_found;
 }	t_data;
 
 void	check_ber(char *av);

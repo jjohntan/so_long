@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/26 14:57:09 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/26 17:37:31 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	check_map(t_data *data)
 		ft_printf("Error. invalid map\n");
 		exit(EXIT_FAILURE);
 	}
-	if (flood_fill(data, data->x, data->y) == 0)
+	flood_fill(data, data->x, data->y);
+	if (data->valid_map == 0)
 	{
 		ft_printf("Error. invalid path\n");
 		exit(EXIT_FAILURE);
