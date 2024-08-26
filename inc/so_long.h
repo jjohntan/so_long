@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/25 22:01:06 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/26 14:56:10 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		check_char(t_data *data);
 int		check_ecp(t_data *data);
 int		check_row_and_column(t_data *data, int h, int w);
 int		frame(t_data *data);
-int	flood_fill(t_data *data, int x, int y);
+int		flood_fill(t_data *data, int x, int y);
 //put image
 void	put_img_to_win(t_data *data);
 void	put_img_to_char(t_data *data);
