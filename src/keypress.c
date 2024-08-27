@@ -6,12 +6,12 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:36:06 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/25 16:25:58 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/27 19:12:01 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
+/* old_x/y use to fill empty space on the previous position*/
 void	move_up(t_data *data)
 {
 	int	y;
@@ -119,13 +119,13 @@ int	keypress(int keycode, t_data *data)
 {
 	if (keycode == 53)
 		exit_game(data);
-	else if (keycode == 13)
+	else if (keycode == 13 || keycode == 126)
 		move_up(data);
-	else if (keycode == 1)
+	else if (keycode == 1 || keycode == 125)
 		move_down(data);
-	else if (keycode == 0)
+	else if (keycode == 0 || keycode == 123)
 		move_left(data);
-	else if (keycode == 2)
+	else if (keycode == 2 || keycode == 124)
 		move_right(data);
 	return (0);
 }

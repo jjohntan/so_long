@@ -6,13 +6,13 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:45:23 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/27 15:54:20 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/27 16:08:13 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 /* *check if the current position is out of bounds or already visited or a wall
-*'F' means filled*/
+*'F' means filled */
 void	flood_fill(t_data *data, int x, int y)
 {
 	char	**map;
