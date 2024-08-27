@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:50:15 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/25 15:50:20 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/27 15:53:16 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,13 @@ void	put_img_to_win(t_data *data)
 		}
 		y++;
 	}
+}
+
+void	open_window(t_data *data)
+{
+	data->mlx_ptr = mlx_init();
+	data->win_ptr = mlx_new_window(data->mlx_ptr, data->width * SIZE,
+			data->height * SIZE, "so_long");
+	put_img_to_char(data);
+	put_img_to_win(data);
 }

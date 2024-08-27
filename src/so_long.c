@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/26 17:37:31 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/27 15:53:05 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,10 @@ void	check_map(t_data *data)
 {
 	if (check_rectangular(data) == 0 || check_wall(data) == 0
 		|| check_char(data) == 0 || check_ecp(data) == 0)
-	{
-		free_map(data->map);
-		ft_printf("Error. invalid map\n");
-		exit(EXIT_FAILURE);
-	}
+		print_error_msg("Error. invalid map\n");
 	flood_fill(data, data->x, data->y);
 	if (data->valid_map == 0)
-	{
-		ft_printf("Error. invalid path\n");
-		exit(EXIT_FAILURE);
-	}
+		print_error_msg("Error. invalid path\n");
 }
 
 void	check_ber(char *av)
@@ -35,10 +28,7 @@ void	check_ber(char *av)
 
 	len = ft_strlen(av) - 4;
 	if (ft_strncmp(&av[len], ".ber", 4) != 0)
-	{
-		ft_printf("Error. invalid format\n");
-		exit(EXIT_FAILURE);
-	}
+		print_error_msg("Error. invalid format\n");
 }
 
 void	get_map_size(t_data *data)
@@ -49,17 +39,10 @@ void	get_map_size(t_data *data)
 		data->width++;
 }
 
-void	free_map(char **map)
+void	print_error_msg(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
+	ft_putstr_fd(str, 1);
+	exit(EXIT_FAILURE);
 }
 
 int	main(int ac, char **av)
@@ -67,23 +50,18 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac != 2)
-	{
-		ft_printf("Error argument!\n");
-		exit(EXIT_FAILURE);
-	}
+		print_error_msg("Error argument!\n");
 	else
 	{
 		ft_bzero(&data, sizeof(t_data));
 		check_ber(av[1]);
 		data.map = parse_map(av[1]);
+		if (data.map == NULL)
+			print_error_msg("Error no such map\n");
 		data.tmp_map = parse_map(av[1]);
 		get_map_size(&data);
 		check_map(&data);
-		data.mlx_ptr = mlx_init();
-		data.win_ptr = mlx_new_window(data.mlx_ptr, data.width * SIZE,
-				data.height * SIZE, "so_long");
-		put_img_to_char(&data);
-		put_img_to_win(&data);
+		open_window(&data);
 		mlx_hook(data.win_ptr, 2, (1L << 0), keypress, &data);
 		mlx_hook(data.win_ptr, 17, 0, exit_game, &data);
 		mlx_loop_hook(data.mlx_ptr, frame, &data);

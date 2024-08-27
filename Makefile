@@ -15,7 +15,7 @@ OBJS = $(SRCS:.c=.o) $(UTILS:.c=.o)
 
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iinc -Ilibft -Imlx
+CFLAGS = -Wall -Wextra -Werror -Iinc -Ilibft -Imlx #$(FSANTIZE)
 FSANTIZE = -fsanitize=address -g3
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:03:54 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/26 16:45:41 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/27 15:45:27 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	check_ber(char *av);
 void	check_map(t_data *data);
 char	**parse_map(char *av);
 void	free_map(char **map);
+void	print_error_msg(char *str);
 //check map
 int		check_rectangular(t_data *data);
 int		check_wall(t_data *data);
@@ -56,10 +57,11 @@ int		check_char(t_data *data);
 int		check_ecp(t_data *data);
 int		check_row_and_column(t_data *data, int h, int w);
 int		frame(t_data *data);
-int		flood_fill(t_data *data, int x, int y);
+void	flood_fill(t_data *data, int x, int y);
 //put image
 void	put_img_to_win(t_data *data);
 void	put_img_to_char(t_data *data);
+void	open_window(t_data *data);
 //keypress
 int		keypress(int keycode, t_data *data);
 void	move_up(t_data *data);
