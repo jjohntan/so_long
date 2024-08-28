@@ -6,7 +6,7 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:46:47 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/27 20:38:07 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/28 13:51:32 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,10 @@ void	check_ber(char *av)
 
 void	get_map_size(t_data *data)
 {
-	printf("lul %d %d\n", data->height, data->width);
 	while (data->map[data->height])
 		data->height++;
-	printf("lulz\n");
-	while (data->map[0][data->width])//
+	while (data->map[0][data->width])
 		data->width++;
-	printf("test\n");
 }
 
 void	print_error(char *str)
@@ -53,14 +50,12 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac != 2)
-		print_error("Error argument!\n");
+		print_error("Error. wrong argument!\n");
 	else
 	{
 		ft_bzero(&data, sizeof(t_data));
 		check_ber(av[1]);
 		data.map = parse_map(av[1]);
-		if (data.map == NULL)
-			print_error("Error no such map\n");
 		data.tmp_map = parse_map(av[1]);
 		get_map_size(&data);
 		check_map(&data);

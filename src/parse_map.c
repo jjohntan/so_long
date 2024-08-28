@@ -6,13 +6,24 @@
 /*   By: jetan <jetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:29:15 by jetan             #+#    #+#             */
-/*   Updated: 2024/08/27 20:47:28 by jetan            ###   ########.fr       */
+/*   Updated: 2024/08/28 14:22:31 by jetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-/*
-* 
+
+static int	open_file(const char *file)
+{
+	int	fd;
+
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		print_error("Error. no such map\n");
+	return (fd);
+}
+
+/*	*read map, join map, repeat, remove newline
+	*tmp use to avoiding overwrites
 */
 char	**parse_map(char *av)
 {
@@ -24,12 +35,10 @@ char	**parse_map(char *av)
 
 	read_map = NULL;
 	tmp = NULL;
-	fd = open(av, O_RDONLY);
-	if (fd == -1)
-		return (NULL);
+	fd = open_file(av);
 	read_map = get_next_line(fd);
 	if (!read_map)
-		print_error("Error .empty map\n");
+		print_error("Error. empty map\n");
 	load_map = ft_strdup("");
 	while (read_map)
 	{
