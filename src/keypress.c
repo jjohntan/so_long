@@ -117,15 +117,16 @@ void	move_right(t_data *data)
 */
 int	keypress(int keycode, t_data *data)
 {
-	if (keycode == 53)
+  printf("keycode is %d", keycode);
+	if (keycode == 9 || keycode == 65307)
 		exit_game(data);
-	else if (keycode == 13 || keycode == 126)
+	else if (keycode == 13 || keycode == 126 || keycode == 119 || keycode == 65362)
 		move_up(data);
-	else if (keycode == 1 || keycode == 125)
+	else if (keycode == 1 || keycode == 125 || keycode == 115 || keycode == 65364)
 		move_down(data);
-	else if (keycode == 0 || keycode == 123)
+	else if (keycode == 0 || keycode == 123 || keycode == 97 || keycode == 65361)
 		move_left(data);
-	else if (keycode == 2 || keycode == 124)
+	else if (keycode == 2 || keycode == 124 || keycode == 100 || keycode == 65363)
 		move_right(data);
 	return (0);
 }

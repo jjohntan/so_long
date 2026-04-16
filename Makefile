@@ -15,12 +15,12 @@ OBJS = $(SRCS:.c=.o) $(UTILS:.c=.o)
 
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iinc -Ilibft -Imlx $(FSANTIZE)
+CFLAGS = -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 $(FSANTIZE)
 FSANTIZE = -fsanitize=address -g3
 all: $(NAME)
 
-$(NAME): $(OBJS) libft
-	$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -lmlx -framework OpenGL -framework Appkit -o $(NAME)
+$(NAME): $(OBJS) libft mlx
+	$(CC) $(CFLAGS) $(OBJS) -L./libft -lft -L./mlx_linux -lmlx -L/usr/lib/X11 -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 %.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -29,13 +29,18 @@ $(NAME): $(OBJS) libft
 libft:
 	make -C libft
 
+mlx:
+	make -C mlx_linux
+
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 	make -C libft clean
+	make -C mlx_linux clean
 
 fclean: clean
 	rm -f $(NAME)
 	rm -f libft/libft.a
+	make -C mlx_linux fclean 2>/dev/null || true
 
 re: fclean all
 
